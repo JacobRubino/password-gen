@@ -48,6 +48,8 @@ function ifNum(){
   }
 }
 
+function
+
 // Write password to the #password input
 function writePassword() {
 
@@ -55,6 +57,7 @@ function writePassword() {
   numnum = "1234567890"
   uppy = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
   specc = " !\"#$%&\'()*+,-./:;<=>?@[\\]^_\`{|}~"
+  passStr = ""
 
   var password = generatePassword();
   var passwordText = document.querySelector("#password");
@@ -64,25 +67,40 @@ function writePassword() {
   ifUpper();
   if (useUpper == True){
     // ROLL FOR AN UPPERCASE STORE IT IN VAR THE CONCOTONATE UPPER STRING
+    passStr = passStr + uppy
+    
   }
   ifLower();
   if (useLower == True){
     // ROLL FOR AN LOWERCASE STORE IT IN VAR THE CONCOTONATE LOWER STRING
+    passStr = passStr + charray
   }
   ifNum();
   if (useNum == True){
     // ROLL FOR AN NUMBER STORE IT IN VAR THE CONCOTONATE NUMBER STRING
+    passStr = passStr + numnum
   }
   ifSpec();
   if (useUpper == True){
     specChar()
     // ROLL FOR SPEC CHAR THEN CONCOTONATE SPEC STR (do i need to check for / or . that might ruin my code?)
+    passStr = passStr + specc
   }
-  
+  var uncheckedPass = Math.floor(Math.random()*passStr.length())
+
+
+
+  //do i want to make this another function or creat3e the function in here... what i will do is check if the password has all the required characters, if not keep looping until it creates one with the required characters. i need to check the password which is why i think i need to create the function outside, and then set apssword check to false if it doesnt pass the check, and stay false until it has the neccesary characters. 
+  passwordcheck = false
+  while (passwordcheck = false) {
+    if 
+
+  }
+
   passwordText.value = password;
 
 
-  // use one of each allowed input to ensure caps and special chars, storre them, concotonate the strings ,  generate a password to passwordLen, then randomly pick random parts of the password to swap with pre randomized parts.
+  // other option ... use one of each allowed input to ensure caps and special chars, storre them, concotonate the strings ,  generate a password to passwordLen, then randomly pick random parts of the password to swap with pre randomized parts.
 }
 
 Math.floor(Math.random())
