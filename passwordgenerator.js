@@ -49,33 +49,37 @@ function ifNum() {
 
 // Write password to the #password input
 function writePassword() {
-  charray = "abcdefghijklmnopqrstuvwxyz";
-  numnum = "1234567890";
-  uppy = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
-  specc = " !\"#$%&'()*+,-./:;<=>?@[\\]^_`{|}~";
+  charray = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l",
+  "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
+  numnum = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
+  uppy = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L",
+  "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"];
+  specc = ["!", "\"", "#", "$", "%", "&", "\'", "(", ")", "*", "+", ",",
+  "-", ".", "/", "\\", ":", ";", "<", ">", "=", "?", "@", "[", "]", "^", "_", "`", "{", "}", "|", "~"];
   var passStr = "";
   var passwordText = document.querySelector("#password");
   var lenPass = passwordLen();
   var letterPass = "";
   ifUpper();
   if (useUpper == true) {
-    passStr = passStr + uppy;
+    passStr = passStr.concat(uppy);
   }
   ifLower();
   if (useLower == true) {
-    passStr = passStr + charray;
+    passStr = passStr.concat(charray);
   }
   ifNum();
   if (useNum == true) {
-    passStr = passStr + numnum;
+    passStr = passStr.concat(numnum);
   }
   ifSpec();
   if (useSpec == true) {
-    passStr = passStr + specc;
+    passStr = passStr.concat(specc);
   }
   for (let index = 0; index < lenPass.length; index++) {
     letterPass = Math.floor(Math.random() * passStr.length);
     password = password + passStr[letterPass];
+    console.log(passStr)
   }
   passwordText.value
   passwordText.value = password;
