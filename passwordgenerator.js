@@ -11,36 +11,40 @@ function passwordLen() {
 }
 
 function ifUpper() {
-  useUpper = false;
   upperInput = window.prompt("Do you wish to use uppercases? yes or no");
   if (upperInput.toLowerCase() === "yes") {
     useUpper = true;
-  }
+  } else if(upperInput.toLowerCase()==="no"){
+    useUpper = false;
+  }else {return;}
 }
 
 function ifLower() {
-  useLower = false;
   upperInput = window.prompt("Do you wish to use lowercase? yes or no");
   if (upperInput.toLowerCase() === "yes") {
     useLower = true;
-  }
+  } else if(upperInput.toLowerCase()==="no"){
+    useLower = false;
+  }else {return;}
 }
 function ifSpec() {
-  useSpec = false;
   upperInput = window.prompt(
     "Do you wish to use special characters? yes or no"
   );
   if (upperInput.toLowerCase() === "yes") {
     useSpec = true;
-  }
+  } else if(upperInput.toLowerCase()==="no"){
+    useSpec = false;
+  }else {return;}
 }
 
 function ifNum() {
-  useNum = false;
   upperInput = window.prompt("Do you wish to use numbers? yes or no");
   if (upperInput.toLowerCase() === "yes") {
     useNum = true;
-  }
+  } else if(upperInput.toLowerCase()==="no"){
+    useNum = false;
+  }else {return;}
 }
 
 // Write password to the #password input
@@ -49,13 +53,10 @@ function writePassword() {
   numnum = "1234567890";
   uppy = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
   specc = " !\"#$%&'()*+,-./:;<=>?@[\\]^_`{|}~";
-  passStr = "";
-  // passwordText.value = ""
-  // var password = generatePassword();
+  var passStr = "";
   var passwordText = document.querySelector("#password");
   var lenPass = passwordLen();
   var letterPass = "";
-  // console.log(lenPass);
   ifUpper();
   if (useUpper == true) {
     passStr = passStr + uppy;
@@ -70,24 +71,17 @@ function writePassword() {
   }
   ifSpec();
   if (useSpec == true) {
-    // specChar();
     passStr = passStr + specc;
   }
   for (let index = 0; index < lenPass.length; index++) {
-    // const element = array[index];
     letterPass = Math.floor(Math.random() * passStr.length);
     password = password + passStr[letterPass];
   }
+  passwordText.value
   passwordText.value = password;
-
-  // other option ... use one of each allowed input to ensure caps and special chars, storre them, concotonate the strings ,  generate a password to passwordLen, then randomly pick random parts of the password to swap with pre randomized parts.
 }
 
-// Math.floor(Math.random());
+
 
 // Add event listener to generate button
 generateBtn.addEventListener("click", writePassword);
-
-// randoint = Math.random() * 5;
-// console.log(randoint.toString());
-// writePassword();
